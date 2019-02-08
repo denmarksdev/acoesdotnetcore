@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Testes", "02 - Testes"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcoesDotNet.Testes", "AcoesDotNet.Testes\AcoesDotNet.Testes.csproj", "{1E199B1D-2316-42FC-AE27-7F04511871B0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - AcessoDados", "03 - AcessoDados", "{284F5802-6896-4F9E-AA17-2FF01AF1205E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcoesDotNet.Dal", "AcoesDotNet.Dal\AcoesDotNet.Dal.csproj", "{65E27C08-C167-4F56-9569-D2A78E3C8364}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,10 @@ Global
 		{1E199B1D-2316-42FC-AE27-7F04511871B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E199B1D-2316-42FC-AE27-7F04511871B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E199B1D-2316-42FC-AE27-7F04511871B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65E27C08-C167-4F56-9569-D2A78E3C8364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65E27C08-C167-4F56-9569-D2A78E3C8364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65E27C08-C167-4F56-9569-D2A78E3C8364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65E27C08-C167-4F56-9569-D2A78E3C8364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2524D986-0AAA-47F5-AD77-0FDFF46637BA} = {CA4C7CEB-EB5E-4009-B79D-25F8B32CB6B0}
 		{1E199B1D-2316-42FC-AE27-7F04511871B0} = {FDF84087-41DA-4705-90AC-6FAC0970F7AB}
+		{65E27C08-C167-4F56-9569-D2A78E3C8364} = {284F5802-6896-4F9E-AA17-2FF01AF1205E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {371AD3C3-22C9-4EDC-AA72-FB7AE777C89B}

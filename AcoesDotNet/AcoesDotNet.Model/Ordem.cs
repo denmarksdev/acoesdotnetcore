@@ -27,7 +27,7 @@ namespace AcoesDotNet.Model
         }
 
         public DateTime  DataOrdem { get; set; }
-        public string CodigoAcao { get; set; }
+        
         public int QuantidadeAcoes  { get; set; }
         public DateTime DataCompra { get; set; }
         public decimal ValorOrdem { get; set; }
@@ -36,6 +36,8 @@ namespace AcoesDotNet.Model
 
         public int IdCliente { get; set; }
         public Cliente Cliente { get; set; }
+
+        public string CodigoAcao { get; set; }
 
         private bool EhUmaCompra => TipoOrdem == TIPO_COMPRA;
         private bool TipoEhValido(char tipo) => _tiposValidos.Contains(tipo);
