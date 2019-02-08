@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28531.58
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcoesDotNet.Model", "AcoesDotNet.Model\AcoesDotNet.Model.csproj", "{2524D986-0AAA-47F5-AD77-0FDFF46637BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Modelagem dos dados", "01 - Modelagem dos dados", "{CA4C7CEB-EB5E-4009-B79D-25F8B32CB6B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2524D986-0AAA-47F5-AD77-0FDFF46637BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2524D986-0AAA-47F5-AD77-0FDFF46637BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2524D986-0AAA-47F5-AD77-0FDFF46637BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2524D986-0AAA-47F5-AD77-0FDFF46637BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2524D986-0AAA-47F5-AD77-0FDFF46637BA} = {CA4C7CEB-EB5E-4009-B79D-25F8B32CB6B0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {371AD3C3-22C9-4EDC-AA72-FB7AE777C89B}
+	EndGlobalSection
+EndGlobal
