@@ -10,7 +10,7 @@ namespace AcoesDotNet.Model
 
         public string  Nome   { get; set; }
 
-        public string DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
 
         private char _tipoPessoa;
         public char TipoPessoa

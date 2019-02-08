@@ -5,12 +5,12 @@ namespace AcoesDotNet.Model
 {
     public  class Ordem : BaseModel
     {
-        
+        private const int VALOR_BASE_LIMITE = 20000;
+        public const int ISENTO = 0;
         public const char TIPO_COMPRA = 'C',
                           TIPO_VENDA = 'V';
 
         private readonly char[] _tiposValidos = new[] { TIPO_COMPRA, TIPO_VENDA };
-
 
         #region Propriedades
 
@@ -19,7 +19,7 @@ namespace AcoesDotNet.Model
         {
             get => _tipo;
             set {
-                if (_tiposValidos.Contains(value))
+                if (!TipoEhValido(value))
                     throw new ArgumentException($"Tipo '{TipoOrdem}' inválido");
 
                 _tipo = value;
@@ -37,6 +37,90 @@ namespace AcoesDotNet.Model
         public int IdCliente { get; set; }
         public Cliente Cliente { get; set; }
 
+        private bool EhUmaCompra => TipoOrdem == TIPO_COMPRA;
+        private bool TipoEhValido(char tipo) => _tiposValidos.Contains(tipo);
+
         #endregion
+
+        #region Métodos
+
+        public void CalculaValorOrdem(Acao acao)
+        {
+            ValorOrdem = QuantidadeAcoes * acao.Valor;
+        }
+
+        public void CalculaTaxaCorretagem(Cliente cliente)
+        {
+            if (!TipoEhValido(TipoOrdem)) throw new ArgumentExeption($"Tipo de ordem '{TipoOrdem}' invalido");
+
+            if (EhUmaCompra)
+            {
+                DefineTaxaNaCompra(cliente);
+            }
+            else
+            {
+                DefineTaxaNaVenda(cliente);
+            }
+        }
+
+        public void CalculaImpostoRenda(Acao acaoPorDataOrdem, Acao acaoPorDataCompra)
+        {
+            if (EhUmaCompra)
+            {
+                ImpostoRenda = ISENTO;
+            }
+            else
+            {
+                var varicaoCotacao = (acaoPorDataOrdem.Valor - acaoPorDataCompra.Valor);
+                if (varicaoCotacao > 0)
+                {
+                    ImpostoRenda = (QuantidadeAcoes * varicaoCotacao) * 0.15m;
+                }
+                else
+                {
+                    ImpostoRenda = ISENTO;
+                }
+            }
+        }
+
+        private void DefineTaxaNaVenda(Cliente cliente)
+        {
+            if (cliente.EhUmaPessoaFisica())
+            {
+                TaxaCorretagem = 0.70m;
+            }
+            else
+            {
+                TaxaCorretagem = 0.60m;
+            }
+        }
+
+        private void DefineTaxaNaCompra(Cliente cliente)
+        {
+            if (cliente.EhUmaPessoaFisica())
+            {
+                if (ValorOrdem < VALOR_BASE_LIMITE)
+                    TaxaCorretagem = ISENTO;
+                else if (ValorOrdem >= VALOR_BASE_LIMITE)
+                {
+                    TaxaCorretagem = 0.75m;
+                }
+            }
+            else
+            {
+                if (ValorOrdem < VALOR_BASE_LIMITE)
+                {
+                    TaxaCorretagem = 0.25m;
+                }
+                else if (ValorOrdem >= VALOR_BASE_LIMITE)
+                {
+                    TaxaCorretagem = 0.45m;
+                }
+            }
+        }
     }
+
+    #endregion
+
 }
+
