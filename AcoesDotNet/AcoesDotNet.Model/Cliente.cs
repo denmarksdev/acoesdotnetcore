@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace AcoesDotNet.Model
 {
-    public class Cliente
+    public class Cliente : BaseModel
     {
         public const char TIPO_PESSOA_FISICA = 'F',
                           TIPO_PESSOA_JURIDICA = 'J';
