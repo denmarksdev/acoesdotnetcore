@@ -13,6 +13,5 @@ namespace AcoesDotNet.Web.Controllers
 
                 return "Erros:\n" + string.Join('\n', erros);
         }
-
     }
 }

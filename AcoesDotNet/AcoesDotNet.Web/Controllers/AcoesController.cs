@@ -20,8 +20,8 @@ namespace AcoesDotNet.Web.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Acao>>> Get()
         {
-            var Acaos = await repo.GetAllAsyc();
-            return new ObjectResult(Acaos);
+            var acoes = await repo.GetAllAsyc();
+            return new ObjectResult(acoes);
         }
 
         [HttpGet("{id}")]
@@ -32,14 +32,14 @@ namespace AcoesDotNet.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Acao Acao)
+        public async Task<IActionResult> Post([FromBody] Acao acao)
         {
-            var mensagemErro = ValidaEntidade(Acao);
+            var mensagemErro = ValidaEntidade(acao);
             if (mensagemErro != null)
             {
                 return BadRequest(mensagemErro);
             }
-            await repo.InsertAsync(Acao);
+            await repo.InsertAsync(acao);
             return Ok();
         }
 
