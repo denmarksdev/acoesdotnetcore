@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28531.58
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcoesDotNet.Model", "AcoesDotNet.Model\AcoesDotNet.Model.csproj", "{2524D986-0AAA-47F5-AD77-0FDFF46637BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcoesDotNet.Model", "AcoesDotNet.Model\AcoesDotNet.Model.csproj", "{2524D986-0AAA-47F5-AD77-0FDFF46637BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Modelagem dos dados", "01 - Modelagem dos dados", "{CA4C7CEB-EB5E-4009-B79D-25F8B32CB6B0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Testes", "02 - Testes", "{FDF84087-41DA-4705-90AC-6FAC0970F7AB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Testes", "04 - Testes", "{FDF84087-41DA-4705-90AC-6FAC0970F7AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcoesDotNet.Testes", "AcoesDotNet.Testes\AcoesDotNet.Testes.csproj", "{1E199B1D-2316-42FC-AE27-7F04511871B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcoesDotNet.Testes", "AcoesDotNet.Testes\AcoesDotNet.Testes.csproj", "{1E199B1D-2316-42FC-AE27-7F04511871B0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - AcessoDados", "03 - AcessoDados", "{284F5802-6896-4F9E-AA17-2FF01AF1205E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - AcessoDados", "02 - AcessoDados", "{284F5802-6896-4F9E-AA17-2FF01AF1205E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcoesDotNet.Dal", "AcoesDotNet.Dal\AcoesDotNet.Dal.csproj", "{65E27C08-C167-4F56-9569-D2A78E3C8364}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcoesDotNet.Dal", "AcoesDotNet.Dal\AcoesDotNet.Dal.csproj", "{65E27C08-C167-4F56-9569-D2A78E3C8364}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcoesDotNet.Repository", "AcoesDotNet.Repository\AcoesDotNet.Repository.csproj", "{1DFB5C1A-FDCF-4DFC-8CC3-CED91DC09504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcoesDotNet.Repository", "AcoesDotNet.Repository\AcoesDotNet.Repository.csproj", "{1DFB5C1A-FDCF-4DFC-8CC3-CED91DC09504}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Web API", "04 - Web API", "{5A40CF60-0888-4D1E-9991-1CFDCAAED362}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Web API", "03 - Web API", "{5A40CF60-0888-4D1E-9991-1CFDCAAED362}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcoesDotNet.Web", "AcoesDotNet.Web\AcoesDotNet.Web.csproj", "{E20FFB13-C7E0-4E50-A1B9-FA13FBA3A3FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcoesDotNet.Web", "AcoesDotNet.Web\AcoesDotNet.Web.csproj", "{E20FFB13-C7E0-4E50-A1B9-FA13FBA3A3FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
