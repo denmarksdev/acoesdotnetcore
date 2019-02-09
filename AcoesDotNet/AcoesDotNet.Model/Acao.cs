@@ -2,7 +2,7 @@
 
 namespace AcoesDotNet.Model
 {
-    public class Acao : BaseModel
+    public partial class Acao : BaseModel
     {
         public  string CodigoDaAcao { get; set; }
         public DateTime DataCotacao { get; set; }

@@ -11,7 +11,8 @@ namespace AcoesDotNet.Dal.Configurations
             entidade.ToTable("Acoes");
 
             entidade.Property(c => c.CodigoDaAcao)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(10);
 
             entidade.Property(c => c.DataCotacao)
                 .IsRequired();
