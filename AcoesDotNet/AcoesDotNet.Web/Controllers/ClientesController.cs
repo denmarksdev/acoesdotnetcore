@@ -9,7 +9,7 @@ namespace AcoesDotNet.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientesController : ControllerBase
+    public class ClientesController : BaseController
     {
         private readonly IGenericRepository<Cliente> repo;
 
@@ -38,7 +38,7 @@ namespace AcoesDotNet.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Cliente cliente)
         {
-            var mensagemErro = VerificaErro(cliente);
+            var mensagemErro = ValidaEntidade(cliente);
             if (mensagemErro != null)
             {
                 return BadRequest(mensagemErro);
@@ -54,7 +54,7 @@ namespace AcoesDotNet.Web.Controllers
             if (id != cliente.Id)
                 return BadRequest("Id do cliente inválido");
 
-            var mensagemErro = VerificaErro(cliente);
+            var mensagemErro = ValidaEntidade(cliente);
             if (mensagemErro != null)
             {
                 return BadRequest(mensagemErro);
@@ -69,14 +69,6 @@ namespace AcoesDotNet.Web.Controllers
         public async Task Delete(int id)
         {
             await repo.DeleteAsync(id);
-        }
-
-        public string VerificaErro(Cliente cliente)
-        {
-            var erros = cliente.Valida();
-            if (erros.Count() == 0) return null;
-
-            return "Erros:\n" + string.Join('\n', erros);
         }
     }
 }

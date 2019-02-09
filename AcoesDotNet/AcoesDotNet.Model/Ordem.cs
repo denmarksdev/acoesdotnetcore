@@ -43,8 +43,6 @@ namespace AcoesDotNet.Model
         public string CodigoAcao { get; set; }
 
         private bool EhUmaCompra() => TipoOrdem == TIPO_COMPRA;
-
-
         private bool TipoEhValido(char tipo) => _tiposValidos.Contains(tipo);
 
         #endregion
@@ -65,7 +63,7 @@ namespace AcoesDotNet.Model
 
         public void CalculaTaxaCorretagem(Cliente cliente)
         {
-            if (!TipoEhValido(TipoOrdem)) throw new ArgumentExeption($"Tipo de ordem '{TipoOrdem}' invalido");
+            if (!TipoEhValido(TipoOrdem)) throw new ArgumentException($"Tipo de ordem '{TipoOrdem}' invalido");
 
             if (EhUmaCompra())
             {
@@ -85,10 +83,10 @@ namespace AcoesDotNet.Model
             }
             else
             {
-                var varicaoCotacao = (acaoPorDataOrdem.Valor - acaoPorDataCompra.Valor);
-                if (varicaoCotacao > 0)
+                var variacaoCotacao = (acaoPorDataOrdem.Valor - acaoPorDataCompra.Valor);
+                if (variacaoCotacao > 0)
                 {
-                    ImpostoRenda = (QuantidadeAcoes * varicaoCotacao) * 0.15m;
+                    ImpostoRenda = (QuantidadeAcoes * variacaoCotacao) * 0.15m;
                 }
                 else
                 {

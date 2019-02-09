@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AcoesDotNet.Model;
 using AcoesDotNet.Repository;
@@ -10,7 +9,7 @@ namespace AcoesDotNet.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrdemController : ControllerBase
+    public class OrdemController : BaseController
     {
         private readonly IOrdemRepository _repo;
         private readonly IGenericRepository<Acao> _acaoRepo;
@@ -37,7 +36,7 @@ namespace AcoesDotNet.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Ordem ordem)
         {
-            var mensagemErro = VerificaErro(ordem);
+            var mensagemErro = ValidaEntidade(ordem);
             if (mensagemErro != null)
             {
                 return BadRequest(mensagemErro);
@@ -74,14 +73,6 @@ namespace AcoesDotNet.Web.Controllers
             );
 
             ordem.EfetuaCalculos(acaoDataOrdem,acaoDataCompra,cliente);
-        }
-
-        public string VerificaErro(Ordem ordem)
-        {
-            var erros = ordem.Valida();
-            if (erros.Count() == 0) return null;
-
-            return "Erros:\n" + string.Join('\n', erros);
         }
     }
 }

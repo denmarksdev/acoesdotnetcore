@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AcoesDotNet.Model;
 using AcoesDotNet.Repository.Base;
@@ -9,7 +8,7 @@ namespace AcoesDotNet.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AcoesController : ControllerBase
+    public class AcoesController : BaseController
     {
         private readonly IGenericRepository<Acao> repo;
 
@@ -38,7 +37,7 @@ namespace AcoesDotNet.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Acao Acao)
         {
-            var mensagemErro = VerificaErro(Acao);
+            var mensagemErro = ValidaEntidade(Acao);
             if (mensagemErro != null)
             {
                 return BadRequest(mensagemErro);
@@ -55,7 +54,7 @@ namespace AcoesDotNet.Web.Controllers
             if (id != acao.Id)
                 return BadRequest("Código da acao é invalido");
 
-            var mensagemErro = VerificaErro(acao);
+            var mensagemErro = ValidaEntidade(acao);
             if (mensagemErro != null)
             {
                 return BadRequest(mensagemErro);
@@ -70,14 +69,6 @@ namespace AcoesDotNet.Web.Controllers
         public async Task Delete(int id)
         {
             await repo.DeleteAsync(id);
-        }
-
-        public string VerificaErro(Acao Acao)
-        {
-            var erros = Acao.Valida();
-            if (erros.Count() == 0) return null;
-
-            return "Erros:\n" + string.Join('\n', erros);
         }
     }
 }
