@@ -28,8 +28,15 @@ namespace AcoesDotNet.Web.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ordem>>> Get()
         {
-            var Ordems = await _repo.GetAllAsync();
-            return new ObjectResult(Ordems);
+            var ordens = await _repo.GetAllAsync();
+            return new ObjectResult(ordens);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Ordem>>> Get(int id)
+        {
+            var ordem = await _repo.GetById(id);
+            return new ObjectResult(ordem);
         }
 
         [HttpPost]
