@@ -1,5 +1,5 @@
 # Ações DotNetCore
-Aplicação para registro de compra e venda de ações. 
+Aplicação para registro de compra e venda de ações em Asp.NET Core e Angular 2+. 
 
 #  Requerimentos
 
