@@ -18,7 +18,6 @@ namespace AcoesDotNet.Web.Controllers
             this.repo = repo;
         }
 
-        // GET api/values
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cliente>>> Get()
         {
@@ -26,7 +25,6 @@ namespace AcoesDotNet.Web.Controllers
             return new ObjectResult( clientes);
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Cliente>> Get(int id)
         {
@@ -34,7 +32,6 @@ namespace AcoesDotNet.Web.Controllers
             return new ObjectResult(cliente); ;
         }
 
-        // POST api/values
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Cliente cliente)
         {
@@ -47,7 +44,6 @@ namespace AcoesDotNet.Web.Controllers
             return Ok();
         }
 
-        // PUT api/values/5
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] Cliente cliente)
         {
@@ -64,7 +60,6 @@ namespace AcoesDotNet.Web.Controllers
             return Ok();
         }
 
-        // DELETE api/values/5
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {

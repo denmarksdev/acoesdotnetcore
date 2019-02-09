@@ -32,7 +32,6 @@ namespace AcoesDotNet.Web.Controllers
             return new ObjectResult(Ordems);
         }
 
-        // POST api/values
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Ordem ordem)
         {
