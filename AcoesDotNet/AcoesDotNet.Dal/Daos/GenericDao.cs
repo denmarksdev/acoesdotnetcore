@@ -10,12 +10,12 @@ namespace AcoesDotNet.Dal.Daos
 {
     public class GenericDao<TEntity> : IGenericDao<TEntity> where TEntity : class
     {
-        internal DbContext _context;
-        internal DbSet<TEntity> _dbSet;
+        protected DbContext _context;
+        protected DbSet<TEntity> _dbSet;
 
-        public GenericDao(DbContext context)
+        public GenericDao()
         {
-            _context = context;
+            _context = new AcoesDataContext();
             _dbSet = _context.Set<TEntity>();
         }
 

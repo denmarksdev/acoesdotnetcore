@@ -5,10 +5,20 @@ namespace AcoesDotNet.Dal
 {
     public class AcoesDataContext : DbContext
     {
+        private static string _connectionString;
+
+        public AcoesDataContext()
+        {
+        }
+
+        public AcoesDataContext(string connetionString)
+        {
+            _connectionString = connetionString;
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //TODO: Mover para arquivo de configuração
-            optionsBuilder.UseSqlite("Data Source=acaodb.db");
+            optionsBuilder.UseSqlite(_connectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
