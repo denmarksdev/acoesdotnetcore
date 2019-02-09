@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Linq;
 
 namespace AcoesDotNet.Model
 {
-    public  class Ordem : BaseModel
+    public partial  class Ordem : BaseModel
     {
         private const int VALOR_BASE_LIMITE = 20000;
         public const int ISENTO = 0;
@@ -35,16 +36,27 @@ namespace AcoesDotNet.Model
         public decimal ImpostoRenda { get; set; }
 
         public int IdCliente { get; set; }
+
+        [JsonIgnore]
         public Cliente Cliente { get; set; }
 
         public string CodigoAcao { get; set; }
 
-        private bool EhUmaCompra => TipoOrdem == TIPO_COMPRA;
+        private bool EhUmaCompra() => TipoOrdem == TIPO_COMPRA;
+
+
         private bool TipoEhValido(char tipo) => _tiposValidos.Contains(tipo);
 
         #endregion
 
         #region Métodos
+
+        public void EfetuaCalculos(Acao acaoPorDataOrdem, Acao acaoPorDataCompra, Cliente cliente)
+        {
+            CalculaValorOrdem(acaoPorDataOrdem);
+            CalculaTaxaCorretagem(cliente);
+            CalculaImpostoRenda(acaoPorDataOrdem, acaoPorDataCompra);
+        }
 
         public void CalculaValorOrdem(Acao acao)
         {
@@ -55,7 +67,7 @@ namespace AcoesDotNet.Model
         {
             if (!TipoEhValido(TipoOrdem)) throw new ArgumentExeption($"Tipo de ordem '{TipoOrdem}' invalido");
 
-            if (EhUmaCompra)
+            if (EhUmaCompra())
             {
                 DefineTaxaNaCompra(cliente);
             }
@@ -67,7 +79,7 @@ namespace AcoesDotNet.Model
 
         public void CalculaImpostoRenda(Acao acaoPorDataOrdem, Acao acaoPorDataCompra)
         {
-            if (EhUmaCompra)
+            if (EhUmaCompra())
             {
                 ImpostoRenda = ISENTO;
             }

@@ -1,4 +1,5 @@
 ﻿using AcoesDotNet.Dal.Helpers;
+using AcoesDotNet.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,7 @@ namespace AcoesDotNet.Dal.Daos
             _context = new AcoesDataContext();
             _dbSet = _context.Set<TEntity>();
         }
-
-
+               
         public async Task<IEnumerable<TEntity>> GetAllAsyc(params Expression<Func<TEntity, object>>[] includeProperties)
         {
             return await SetIncludeProperties(includeProperties)
@@ -32,6 +32,26 @@ namespace AcoesDotNet.Dal.Daos
             return SetIncludeProperties(includeProperties)
                      .AsNoTracking()
                      .SingleOrDefaultAsync(DataContextHelper.BuildLambdaForFindByKey<TEntity>(id));
+        }
+
+        public Task<TEntity> GetByExpression(
+            Expression<Func<TEntity, bool>> predicate,
+            string campoOrdenacao = nameof(BaseModel.Id),
+            bool desc = false,
+            params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            return SetIncludeProperties(includeProperties)
+                     .AsNoTracking()
+                     .OrderBy(campoOrdenacao, desc)
+                     .FirstOrDefaultAsync(predicate);
+        }
+
+
+        public Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _dbSet
+                     .AsNoTracking()
+                     .AnyAsync(predicate);
         }
 
 
@@ -49,7 +69,7 @@ namespace AcoesDotNet.Dal.Daos
 
         public async Task UpdateAsync(TEntity entity)
         {
-            _dbSet.Update(entity);
+            var info =  _dbSet.Update(entity);
             await _context.SaveChangesAsync();
             _context.Entry(entity).State = EntityState.Detached;
         }

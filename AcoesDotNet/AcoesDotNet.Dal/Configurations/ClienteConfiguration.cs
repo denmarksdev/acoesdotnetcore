@@ -12,6 +12,8 @@ namespace AcoesDotNet.Dal.Configurations
 
             entidade.Property(c => c.Nome)
                 .IsRequired();
+            entidade.HasIndex(c => c.Nome)
+                .IsUnique();
 
             entidade.Property(c => c.DataNascimento)
                 .IsRequired();

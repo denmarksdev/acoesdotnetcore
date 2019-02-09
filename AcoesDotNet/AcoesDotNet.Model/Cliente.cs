@@ -1,6 +1,4 @@
-﻿using AcoesDotNet.Model.Validacoes;
-using System;
-using System.Linq;
+﻿using System;
 
 namespace AcoesDotNet.Model
 {

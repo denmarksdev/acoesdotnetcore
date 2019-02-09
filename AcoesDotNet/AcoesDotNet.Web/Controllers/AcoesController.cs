@@ -49,18 +49,19 @@ namespace AcoesDotNet.Web.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] Acao Acao)
+        public async Task<ActionResult> Put(int id, [FromBody] Acao acao)
         {
-            if (id != Acao.Id)
-                return BadRequest("Id do Acao inválido");
+            var acaoExiste = await repo.ExistsAsync(a => a.Id == id);
+            if (id != acao.Id)
+                return BadRequest("Código da acao é invalido");
 
-            var mensagemErro = VerificaErro(Acao);
+            var mensagemErro = VerificaErro(acao);
             if (mensagemErro != null)
             {
                 return BadRequest(mensagemErro);
             }
 
-            await repo.UpdateAsync(Acao);
+            await repo.UpdateAsync(acao);
             return Ok();
         }
 

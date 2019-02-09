@@ -27,6 +27,7 @@ namespace AcoesDotNet.Web
             services.AddTransient<IDatabaseRepository, DataBaseRepository>();
             services.AddTransient<IGenericRepository<Cliente>, GenericRepository<Cliente>>();
             services.AddTransient<IGenericRepository<Acao>, GenericRepository<Acao>>();
+            services.AddTransient<IOrdemRepository,OrdemRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
