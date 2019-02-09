@@ -9,13 +9,13 @@ namespace AcoesDotNet.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrdemController : BaseController
+    public class OrdensController : BaseController
     {
         private readonly IOrdemRepository _repo;
         private readonly IGenericRepository<Acao> _acaoRepo;
         private readonly IGenericRepository<Cliente> _clienteRepo;
 
-        public OrdemController(
+        public OrdensController(
             IOrdemRepository repo, 
             IGenericRepository<Acao> acaoRepo,
             IGenericRepository<Cliente> clienteRepo)
@@ -32,10 +32,10 @@ namespace AcoesDotNet.Web.Controllers
             return new ObjectResult(ordens);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ordem>>> Get(int id)
+        [HttpGet("id")]
+        public async Task<ActionResult<Ordem>> Get(int id)
         {
-            var ordem = await _repo.GetById(id);
+            var ordem = await _repo.GetByIdAsync(id);
             return new ObjectResult(ordem);
         }
 

@@ -7,7 +7,7 @@ namespace AcoesDotNet.Repository
     public interface IOrdemRepository
     {
         Task<IEnumerable<Ordem>> GetAllAsync();
-        Task<Ordem> GetById(int id);
+        Task<Ordem> GetByIdAsync(int id);
         Task InsertAsync(Ordem ordem);
     }
 }

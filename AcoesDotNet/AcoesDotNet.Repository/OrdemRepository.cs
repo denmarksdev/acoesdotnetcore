@@ -9,14 +9,14 @@ namespace AcoesDotNet.Repository
     {
         private GenericDao<Ordem> _dao = new GenericDao<Ordem>();
 
-        public Task<Ordem> Get(int id)
-        {
-            return _dao.GetById(id);
-        }
-
         public Task<IEnumerable<Ordem>> GetAllAsync()
         {
             return _dao.GetAllAsyc();
+        }
+
+        public Task<Ordem> GetByIdAsync(int id)
+        {
+            return _dao.GetById(id);
         }
 
         public Task InsertAsync(Ordem ordem)
