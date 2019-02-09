@@ -5,12 +5,12 @@ namespace AcoesDotNet.Dal.Daos
 {
     public class DataBaseDao : IDataBaseDao
     {
-        public Task InicializaAsync(string connecionString)
+        public async Task InicializaAsync(string connecionString)
         {
-            using (var db = new AcoesDataContext(connecionString))
-            {
-                return db.Database.MigrateAsync();
-            }
+           using (var db = new AcoesDataContext(connecionString))
+           {
+               await db.Database.MigrateAsync();
+           }
         }
     }
 }

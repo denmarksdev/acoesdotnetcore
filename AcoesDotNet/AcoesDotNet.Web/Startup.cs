@@ -42,15 +42,17 @@ namespace AcoesDotNet.Web
                 app.UseHsts();
             }
 
-            await InicializaBaseDados(app);
-
+            
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            await InicializaBaseDados(app);
         }
 
         private async Task InicializaBaseDados(IApplicationBuilder app)
         {
-            var connectionString = Configuration.GetValue<string>("SqliteConnectionString");
+            var connectionString = Configuration.GetValue<string>("SqlServerConnectioString");
             var databaseRepo = app.ApplicationServices.GetService<IDatabaseRepository>();
             await databaseRepo.InicializaAsync(connectionString);
         }

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using AcoesDotNet.Model.Validacoes;
+using System;
 using System.Linq;
 
 namespace AcoesDotNet.Model
 {
-    public class Cliente : BaseModel
+    public partial class Cliente : BaseModel 
     {
         public const char TIPO_PESSOA_FISICA = 'F',
                           TIPO_PESSOA_JURIDICA = 'J';
@@ -17,7 +18,7 @@ namespace AcoesDotNet.Model
         {
             get => _tipoPessoa;
             set {
-                if (!new[] { TIPO_PESSOA_FISICA, TIPO_PESSOA_JURIDICA }.Contains(value))
+                if (!TipoPessoaValida(value))
                         throw new ArgumentException($"Tipo de pessoa '{_tipoPessoa}' é inválida");
 
                 _tipoPessoa = value; 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AcoesDotNet.Model;
 using AcoesDotNet.Repository.Base;
@@ -22,7 +23,6 @@ namespace AcoesDotNet.Web.Controllers
         public async Task<ActionResult<IEnumerable<Cliente>>> Get()
         {
             var clientes = await repo.GetAllAsyc();
-
             return new ObjectResult( clientes);
         }
 
@@ -36,9 +36,15 @@ namespace AcoesDotNet.Web.Controllers
 
         // POST api/values
         [HttpPost]
-        public async Task Post([FromBody] Cliente cliente)
+        public async Task<IActionResult> Post([FromBody] Cliente cliente)
         {
+            var mensagemErro = VerificaErro(cliente);
+            if (mensagemErro != null)
+            {
+                return BadRequest(mensagemErro);
+            }
             await repo.InsertAsync(cliente);
+            return Ok();
         }
 
         // PUT api/values/5
@@ -47,6 +53,12 @@ namespace AcoesDotNet.Web.Controllers
         {
             if (id != cliente.Id)
                 return BadRequest("Id do cliente inválido");
+
+            var mensagemErro = VerificaErro(cliente);
+            if (mensagemErro != null)
+            {
+                return BadRequest(mensagemErro);
+            }
 
             await repo.UpdateAsync(cliente);
             return Ok();
@@ -57,6 +69,14 @@ namespace AcoesDotNet.Web.Controllers
         public async Task Delete(int id)
         {
             await repo.DeleteAsync(id);
+        }
+
+        public string VerificaErro(Cliente cliente)
+        {
+            var erros = cliente.Valida();
+            if (erros.Count() == 0) return null;
+
+            return "Erros:\n" + string.Join('\n', erros);
         }
     }
 }

@@ -5,7 +5,8 @@ namespace AcoesDotNet.Dal
 {
     public class AcoesDataContext : DbContext
     {
-        private static string _connectionString;
+        // TODO: Carregar arquivo de configuracao
+        private static string _connectionString = "localhost\\SQLEXPRESS;Database=acoes_migration;Trusted_Connection=True;";
 
         public AcoesDataContext()
         {
@@ -18,7 +19,7 @@ namespace AcoesDotNet.Dal
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(_connectionString);
+            optionsBuilder.UseSqlServer(_connectionString);
             base.OnConfiguring(optionsBuilder);
         }
 
