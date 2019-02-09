@@ -57,6 +57,8 @@ namespace AcoesDotNet.Dal.Daos
 
         public async Task InsertAsync(TEntity entity)
         {
+           var infro = _context.Entry(entity).State;
+
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
@@ -69,7 +71,7 @@ namespace AcoesDotNet.Dal.Daos
 
         public async Task UpdateAsync(TEntity entity)
         {
-            var info =  _dbSet.Update(entity);
+            _dbSet.Update(entity);
             await _context.SaveChangesAsync();
             _context.Entry(entity).State = EntityState.Detached;
         }
