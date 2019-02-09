@@ -48,7 +48,7 @@ namespace AcoesDotNet.Web.Controllers
         {
             var acaoExiste = await repo.ExistsAsync(a => a.Id == id);
             if (id != acao.Id)
-                return BadRequest("Código da acao é invalido");
+                return BadRequest("Código da ação é invalido");
 
             var mensagemErro = ValidaEntidade(acao);
             if (mensagemErro != null)
