@@ -4,6 +4,7 @@ using AcoesDotNet.Repository.Base;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace AcoesDotNet.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
+            services.AddSpaStaticFiles(spa => spa.RootPath = "wwwroot/dist/client");
             services.AddTransient<IDatabaseRepository, DataBaseRepository>();
             services.AddTransient<IGenericRepository<Cliente>, GenericRepository<Cliente>>();
             services.AddTransient<IGenericRepository<Acao>, GenericRepository<Acao>>();
@@ -42,11 +43,19 @@ namespace AcoesDotNet.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             
             app.UseStaticFiles();
+            app.UseSpaStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSpa(spa =>
+            {
+                if (env.IsDevelopment())
+                {
+                    spa.Options.SourcePath = "clientApp";
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                }
+            });
 
             await InicializaBaseDados(app);
         }

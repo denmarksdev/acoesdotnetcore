@@ -1,0 +1,34 @@
+<div class="container">
+  <h1 class="titulo" >{{ acaoFormulario }} cliente</h1>
+  <form [formGroup]="clienteForm"  (ngSubmit)="onSalvar($event)" class="form-container"  >
+
+    <input readonly hidden matInput placeholder="Código" formControlName="id"  >
+
+    <mat-form-field>
+      <input matInput placeholder="Nome*"  formControlName="nome"  >
+      <mat-error>
+          Nome é obrigatório
+       </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Data de nascimento*"  formControlName="dataNascimento" mask="00/00/0000">
+      <mat-error>
+          Nascimento é obrigatório
+       </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Tipo pessoa*" name="item"  formControlName="tipoPessoa" (selectionChange)="onTipoChange($event)"  >
+        <mat-option  *ngFor="let tipo of tiposPessoas" [value]="tipo.valor" >
+          {{tipo.nome}}
+        </mat-option>
+      </mat-select>
+      <mat-error>
+        Tipo de pessoa é obrigatória
+     </mat-error>
+    </mat-form-field>
+    <mat-form-field [ngClass]="{ 'esconder': !clienteForm.get('tipoPessoa').valid }" >
+      <input [hidden]="!clienteForm.get('tipoPessoa').valid"  matInput placeholder="{{placeHolderCnpjCpf}}"  formControlName="cnpjCpf"  [mask]="mask"   >
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!formIsChanged">Salvar</button>
+  </form>
+</div>
