@@ -6,8 +6,7 @@ import { Cliente } from '../cliente.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { _configFactory } from 'ngx-mask';
-import { pairwise, startWith } from 'rxjs/operators';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { GetDataUS } from '../../shared/data.helper';
 
 const PESSOA_JURIDICA: string = "J";
 const PESSOA_FISICA: string = "F"
@@ -60,7 +59,7 @@ export class ClienteEditComponent implements OnInit {
     event.preventDefault();
 
     var cliente: Cliente = this.clienteForm.getRawValue();
-    cliente.dataNascimento = this.GetDataUS(cliente.dataNascimento);
+    cliente.dataNascimento = GetDataUS(cliente.dataNascimento);
 
     console.log(cliente);
 
@@ -71,13 +70,6 @@ export class ClienteEditComponent implements OnInit {
       this.incluirCliente(cliente);
     }
 
-  }
-
-  GetDataUS(dataBr: string): string {
-    var ano = dataBr.substr(dataBr.length - 4);
-    var mes = dataBr.substr(2, 2);
-    var dia = dataBr.substr(0, 2);
-    return `${ano}-${mes}-${dia}`;
   }
 
   private incluirCliente(cliente: Cliente) {

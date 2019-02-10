@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="titulo">{{ acaoFormulario }} acão</h1>
+  <form [formGroup]="acaoForm" (ngSubmit)="onSalvar($event)" class="form-container">
+    <input readonly hidden matInput placeholder="Código" formControlName="id">
+    <mat-form-field>
+      <input matInput placeholder="Código*" formControlName="codigoDaAcao" maxlength="10" >
+      <mat-error>
+        Código é obrigatório
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Data da cotação*" formControlName="dataCotacao" mask="00/00/0000">
+      <mat-error>
+        Data da cotação é obrigatória
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field >
+      <input  matInput placeholder="Valor*" type="text"  formControlName="valor" currencyMask  >
+      <mat-error>
+          Valor é obrigatório
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!formIsChanged">Salvar</button>
+  </form>
+</div>

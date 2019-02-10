@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="titulo" >Ações</h1>
+    <button mat-raised-button color="primary" (click)="onIncluir()" >Incluir</button>
+    <mat-card *ngFor="let acao of service.acoes$|async">
+      <div class="mat-card-content" >
+          <span><strong>Código </strong>{{ acao.codigoDaAcao }}</span>
+          <span><strong>Data da cotação </strong>{{ acao.dataCotacao | date:'dd/MM/yyyy hh:mm:ss' }}</span>
+          <span><strong>Valor </strong>{{ acao.valor | currency:'USD' }}</span>
+      </div>
+      <div class="acoes">
+        <button mat-raised-button (click)="onAlterar(acao.id)" color="accent" >Alterar</button>
+        <button mat-raised-button (click)="onExcluir(acao.id, acao.codigoDaAcao)" color="warn" >Excluir</button>
+      </div>
+    </mat-card>
+</div>
