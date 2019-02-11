@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AcoesDotNet.Dal.Migrations
 {
     [DbContext(typeof(AcoesDataContext))]
-    [Migration("20190211024516_init2DataCompraNula")]
-    partial class init2DataCompraNula
+    [Migration("20190211131513_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

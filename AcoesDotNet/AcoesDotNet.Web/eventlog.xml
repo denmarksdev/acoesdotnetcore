@@ -1,0 +1,139 @@
+<Events><Event><System><Provider Name="IIS AspNetCore Module V2"/><EventID>1032</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:08:09Z"/><EventRecordID>333645938</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application 'D:\home\site\wwwroot\' started the coreclr in-process successfully.</Data><Data>Process Id: 13992.</Data><Data>File Version: 12.2.18346.1. Description: IIS ASP.NET Core Module V2 Request Handler. Commit: 0f9ad16b096ca2535d77efd2ad27645449421b44</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1026</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:08:09Z"/><EventRecordID>333645985</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application: w3wp.exe
+CoreCLR Version: 4.6.27207.3
+Description: The process was terminated due to an unhandled exception.
+Exception Info: Microsoft.Data.Sqlite.SqliteException: SQLite Error 14: 'unable to open database file'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteDatabaseCreator.Create()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.CreateAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at AcoesDotNet.Dal.Daos.DataBaseDao.InicializaAsync(String connecionString) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Dal\Daos\DataBaseDao.cs:line 12
+   at AcoesDotNet.Web.Startup.InicializaBaseDados(IApplicationBuilder app) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 71
+   at AcoesDotNet.Web.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 50
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.&lt;&gt;c.&lt;ThrowAsync&gt;b__7_1(Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.&lt;&gt;c.&lt;.cctor&gt;b__5_0(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+</Data></EventData></Event><Event><System><Provider Name="IIS AspNetCore Module V2"/><EventID>1032</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:12:53Z"/><EventRecordID>333929985</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application 'D:\home\site\wwwroot\' started the coreclr in-process successfully.</Data><Data>Process Id: 1620.</Data><Data>File Version: 12.2.18346.1. Description: IIS ASP.NET Core Module V2 Request Handler. Commit: 0f9ad16b096ca2535d77efd2ad27645449421b44</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1026</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:12:53Z"/><EventRecordID>333930016</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application: w3wp.exe
+CoreCLR Version: 4.6.27207.3
+Description: The process was terminated due to an unhandled exception.
+Exception Info: Microsoft.Data.Sqlite.SqliteException: SQLite Error 14: 'unable to open database file'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteDatabaseCreator.Create()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.CreateAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at AcoesDotNet.Dal.Daos.DataBaseDao.InicializaAsync(String connecionString) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Dal\Daos\DataBaseDao.cs:line 18
+   at AcoesDotNet.Web.Startup.InicializaBaseDados(IApplicationBuilder app) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 71
+   at AcoesDotNet.Web.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 50
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.&lt;&gt;c.&lt;ThrowAsync&gt;b__7_1(Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.&lt;&gt;c.&lt;.cctor&gt;b__5_0(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+</Data></EventData></Event><Event><System><Provider Name="IIS AspNetCore Module V2"/><EventID>1032</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:13:13Z"/><EventRecordID>333949797</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application 'D:\home\site\wwwroot\' started the coreclr in-process successfully.</Data><Data>Process Id: 21916.</Data><Data>File Version: 12.2.18346.1. Description: IIS ASP.NET Core Module V2 Request Handler. Commit: 0f9ad16b096ca2535d77efd2ad27645449421b44</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1026</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:13:13Z"/><EventRecordID>333949844</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application: w3wp.exe
+CoreCLR Version: 4.6.27207.3
+Description: The process was terminated due to an unhandled exception.
+Exception Info: Microsoft.Data.Sqlite.SqliteException: SQLite Error 14: 'unable to open database file'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteDatabaseCreator.Create()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.CreateAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at AcoesDotNet.Dal.Daos.DataBaseDao.InicializaAsync(String connecionString) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Dal\Daos\DataBaseDao.cs:line 18
+   at AcoesDotNet.Web.Startup.InicializaBaseDados(IApplicationBuilder app) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 71
+   at AcoesDotNet.Web.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 50
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.&lt;&gt;c.&lt;ThrowAsync&gt;b__7_1(Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.&lt;&gt;c.&lt;.cctor&gt;b__5_0(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+</Data></EventData></Event><Event><System><Provider Name="IIS AspNetCore Module V2"/><EventID>1032</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:16:30Z"/><EventRecordID>334146875</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application 'D:\home\site\wwwroot\' started the coreclr in-process successfully.</Data><Data>Process Id: 23308.</Data><Data>File Version: 12.2.18346.1. Description: IIS ASP.NET Core Module V2 Request Handler. Commit: 0f9ad16b096ca2535d77efd2ad27645449421b44</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1026</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:16:30Z"/><EventRecordID>334146922</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application: w3wp.exe
+CoreCLR Version: 4.6.27207.3
+Description: The process was terminated due to an unhandled exception.
+Exception Info: Microsoft.Data.Sqlite.SqliteException: SQLite Error 14: 'unable to open database file'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteDatabaseCreator.Create()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.CreateAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at AcoesDotNet.Dal.Daos.DataBaseDao.InicializaAsync(String connecionString) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Dal\Daos\DataBaseDao.cs:line 18
+   at AcoesDotNet.Web.Startup.InicializaBaseDados(IApplicationBuilder app) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 71
+   at AcoesDotNet.Web.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 50
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.&lt;&gt;c.&lt;ThrowAsync&gt;b__7_1(Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.&lt;&gt;c.&lt;.cctor&gt;b__5_0(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+</Data></EventData></Event><Event><System><Provider Name="IIS AspNetCore Module V2"/><EventID>1032</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:16:41Z"/><EventRecordID>334157954</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application 'D:\home\site\wwwroot\' started the coreclr in-process successfully.</Data><Data>Process Id: 25044.</Data><Data>File Version: 12.2.18346.1. Description: IIS ASP.NET Core Module V2 Request Handler. Commit: 0f9ad16b096ca2535d77efd2ad27645449421b44</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1026</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:16:42Z"/><EventRecordID>334158985</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application: w3wp.exe
+CoreCLR Version: 4.6.27207.3
+Description: The process was terminated due to an unhandled exception.
+Exception Info: Microsoft.Data.Sqlite.SqliteException: SQLite Error 14: 'unable to open database file'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteDatabaseCreator.Create()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.CreateAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at AcoesDotNet.Dal.Daos.DataBaseDao.InicializaAsync(String connecionString) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Dal\Daos\DataBaseDao.cs:line 18
+   at AcoesDotNet.Web.Startup.InicializaBaseDados(IApplicationBuilder app) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 71
+   at AcoesDotNet.Web.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 50
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.&lt;&gt;c.&lt;ThrowAsync&gt;b__7_1(Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.&lt;&gt;c.&lt;.cctor&gt;b__5_0(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+</Data></EventData></Event><Event><System><Provider Name="HttpPlatformHandler"/><EventID>2000</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:37:45Z"/><EventRecordID>335421422</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>APPLICATION_MANAGER::~APPLICATION_MANAGER | this=04D40A70 [TID 14072] [PID 2724]</Data></EventData></Event><Event><System><Provider Name="IIS AspNetCore Module V2"/><EventID>1032</EventID><Level>4</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:43:45Z"/><EventRecordID>335781750</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application 'D:\home\site\wwwroot\' started the coreclr in-process successfully.</Data><Data>Process Id: 23356.</Data><Data>File Version: 12.2.18346.1. Description: IIS ASP.NET Core Module V2 Request Handler. Commit: 0f9ad16b096ca2535d77efd2ad27645449421b44</Data></EventData></Event><Event><System><Provider Name=".NET Runtime"/><EventID>1026</EventID><Level>1</Level><Task>0</Task><Keywords>Keywords</Keywords><TimeCreated SystemTime="2019-02-11T12:43:45Z"/><EventRecordID>335781797</EventRecordID><Channel>Application</Channel><Computer>RD00155D01028A</Computer><Security/></System><EventData><Data>Application: w3wp.exe
+CoreCLR Version: 4.6.27207.3
+Description: The process was terminated due to an unhandled exception.
+Exception Info: Microsoft.Data.Sqlite.SqliteException: SQLite Error 14: 'unable to open database file'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteConnection.Open()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteDatabaseCreator.Create()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.CreateAsync(CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at AcoesDotNet.Dal.Daos.DataBaseDao.InicializaAsync(String connecionString) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Dal\Daos\DataBaseDao.cs:line 13
+   at AcoesDotNet.Web.Startup.InicializaBaseDados(IApplicationBuilder app, String rootPath) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 72
+   at AcoesDotNet.Web.Startup.Configure(IApplicationBuilder app, IHostingEnvironment env) in D:\Repositorio\GPQTestes\acoesdotnetcore\AcoesDotNet\AcoesDotNet.Web\Startup.cs:line 48
+   at System.Runtime.CompilerServices.AsyncMethodBuilderCore.&lt;&gt;c.&lt;ThrowAsync&gt;b__7_1(Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.&lt;&gt;c.&lt;.cctor&gt;b__5_0(Object state)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.QueueUserWorkItemCallbackDefaultContext.ExecuteWorkItem()
+   at System.Threading.ThreadPoolWorkQueue.Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback()
+</Data></EventData></Event></Events>

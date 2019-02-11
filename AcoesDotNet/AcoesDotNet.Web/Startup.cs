@@ -13,6 +13,8 @@ namespace AcoesDotNet.Web
 {
     public class Startup
     {
+        private const string SQLITE_PARCIAL_PATH = "Data Source=";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -45,7 +47,7 @@ namespace AcoesDotNet.Web
                 //app.UseHsts();
             }
 
-            await InicializaBaseDados(app);
+           await InicializaBaseDados(app, env.ContentRootPath);
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
@@ -61,12 +63,22 @@ namespace AcoesDotNet.Web
             });
         }
 
-        private async Task InicializaBaseDados(IApplicationBuilder app)
+        private async Task InicializaBaseDados(IApplicationBuilder app, string rootPath)
         {
-            //var connectionString = Configuration.GetValue<string>("SqliteConnectionString");
-            var connectionString = Configuration.GetValue<string>("SqlServerConnectioString");
+            var connectionString = Configuration.GetValue<string>("ConnectionStrings:SqlServer");
+
+            if (connectionString.Contains(SQLITE_PARCIAL_PATH))
+            {
+                var baseDados = connectionString.Split(SQLITE_PARCIAL_PATH)[1];
+                var source = System.IO.Path.Combine(rootPath, baseDados);
+                connectionString = "Data Source =" + source;
+            }
+            
+            
             var databaseRepo = app.ApplicationServices.GetService<IDatabaseRepository>();
             await databaseRepo.InicializaAsync(connectionString);
         }
+
+        
     }
 }
