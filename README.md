@@ -1,14 +1,19 @@
 # Ações DotNetCore
 Aplicação para registro de compra e venda de ações em ASP.NET Core e Angular 2+. 
 
+# Demo
+
+- [Demo da aplicação](https://dotactions.azurewebsites.net/clientes)
+
 #  Requerimentos
 
 - [Visual Studio 2017+](https://visualstudio.microsoft.com/pt-br/vs/)
-- [SqlServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads)
+- [SqlServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) se não for utilizar o Sqlite
 
 # Uso
 
-Configurar a string de conexão **SqlServerConnectioString** em **appsettings.config**
+1. Configurar a connection string em **appsettings.config** se for utilizar o **SqlServer**
+1. Pode ser escolhor o banco de dados SqlServer ou Sqlite em **Startup.cs** no método **InicializaBaseDados**
 
 # API JSON
 
@@ -206,3 +211,16 @@ BODY
    "idCliente":4
 }
 ```
+
+# Screenshoots
+
+## Clientes
+![](https://github.com/denmarksdev/acoesdotnetcore/blob/master/docs/cliente.PNG?raw=true "Ações DotNet")
+
+## Ações
+![](https://github.com/denmarksdev/acoesdotnetcore/blob/master/docs/acoes.PNG?raw=true "Ações DotNet")
+
+## Ordens
+![](https://github.com/denmarksdev/acoesdotnetcore/blob/master/docs/ordens.PNG?raw=true "Ações DotNet")
+
+
