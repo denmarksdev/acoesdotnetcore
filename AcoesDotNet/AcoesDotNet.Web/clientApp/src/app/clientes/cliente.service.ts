@@ -14,7 +14,7 @@ export class ClienteService {
   }
 
   private clientes : BehaviorSubject<Cliente[]> = new BehaviorSubject([]);
-  public $clientes =  this.clientes.asObservable();
+  public clientes$ =  this.clientes.asObservable();
 
   public getAll(){
     return this._http.get<Cliente[]>(BASE_API)

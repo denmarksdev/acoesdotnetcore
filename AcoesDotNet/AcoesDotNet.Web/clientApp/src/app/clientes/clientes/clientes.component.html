@@ -1,7 +1,7 @@
 <div class="container">
     <h1 class="titulo" >Clientes</h1>
     <button mat-raised-button color="primary" (click)="onIncluir()" >Incluir</button>
-    <mat-card *ngFor="let cliente of service.$clientes|async">
+    <mat-card *ngFor="let cliente of service.clientes$|async">
       <div class="mat-card-content" >
           <span><strong>Código </strong>{{ cliente.id }}</span>
           <span><strong>Nome </strong>{{ cliente.nome }}</span>

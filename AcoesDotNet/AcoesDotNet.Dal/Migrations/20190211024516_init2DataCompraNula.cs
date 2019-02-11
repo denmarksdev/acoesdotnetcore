@@ -1,11 +1,10 @@
 ﻿using System;
-using AcoesDotNet.Model;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AcoesDotNet.Dal.Migrations
 {
-    public partial class init : Migration
+    public partial class init2DataCompraNula : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +14,7 @@ namespace AcoesDotNet.Dal.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CodigoDaAcao = table.Column<string>(nullable: false),
+                    CodigoDaAcao = table.Column<string>(maxLength: 10, nullable: false),
                     DataCotacao = table.Column<DateTime>(nullable: false),
                     Valor = table.Column<decimal>(nullable: false)
                 },
@@ -49,7 +48,7 @@ namespace AcoesDotNet.Dal.Migrations
                     TipoOrdem = table.Column<string>(nullable: false),
                     DataOrdem = table.Column<DateTime>(nullable: false),
                     QuantidadeAcoes = table.Column<int>(nullable: false),
-                    DataCompra = table.Column<DateTime>(nullable: false),
+                    DataCompra = table.Column<DateTime>(nullable: true),
                     ValorOrdem = table.Column<decimal>(nullable: false),
                     TaxaCorretagem = table.Column<decimal>(nullable: false),
                     ImpostoRenda = table.Column<decimal>(nullable: false),
@@ -68,14 +67,16 @@ namespace AcoesDotNet.Dal.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateIndex(
+                name: "IX_Clientes_Nome",
+                table: "Clientes",
+                column: "Nome",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ordens_ClienteId",
                 table: "Ordens",
                 column: "ClienteId");
-
-            migrationBuilder.Sql($"ALTER TABLE Clientes ADD CONSTRAINT ck_clientes CHECK ({nameof(Cliente.TipoPessoa)} IN ('{(Cliente.TIPO_PESSOA_FISICA)}','{Cliente.TIPO_PESSOA_JURIDICA}'))");
-            migrationBuilder.Sql($"ALTER TABLE Ordens   ADD CONSTRAINT ck_ordens   CHECK ({nameof(Ordem.TipoOrdem)}    IN ('{Ordem.TIPO_COMPRA}','{Ordem.TIPO_VENDA}'))");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -29,6 +29,6 @@
     <mat-form-field [ngClass]="{ 'esconder': !clienteForm.get('tipoPessoa').valid }" >
       <input [hidden]="!clienteForm.get('tipoPessoa').valid"  matInput placeholder="{{placeHolderCnpjCpf}}"  formControlName="cnpjCpf"  [mask]="mask"   >
     </mat-form-field>
-    <button mat-raised-button color="primary" [disabled]="!formIsChanged">Salvar</button>
+    <button mat-raised-button color="primary" [disabled]="!(clienteForm.valid && formIsChanged)">Salvar</button>
   </form>
 </div>

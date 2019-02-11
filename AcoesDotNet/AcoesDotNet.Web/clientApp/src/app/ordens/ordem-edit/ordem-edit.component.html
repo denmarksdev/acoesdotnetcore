@@ -1,0 +1,89 @@
+<div class="container">
+  <h1 class="titulo">{{ acaoFormulario }} ordem</h1>
+  <form [formGroup]="ordemForm" (ngSubmit)="onSalvar($event)" class="form-container">
+
+    <input readonly hidden matInput placeholder="Código" formControlName="id">
+
+    <mat-form-field>
+      <mat-select placeholder="Tipo da Ordem*" name="item" formControlName="tipoOrdem">
+        <mat-option *ngFor="let tipo of tiposOrdens" [value]="tipo.valor">
+          {{tipo.nome}}
+        </mat-option>
+      </mat-select>
+      <mat-error>
+        Tipo da Ordem é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Data da ordem*" formControlName="dataOrdem" mask="00/00/0000">
+      <mat-error>
+        Data da ordem é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Cliente*" formControlName="idCliente">
+        <mat-option *ngFor=" let cliente of clienteService.clientes$|async" [value]="cliente.id">
+          {{cliente.nome}}
+        </mat-option>
+      </mat-select>
+      <mat-error>
+        Cliente é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Código da ação*" formControlName="codigoAcao">
+      <mat-error>
+        Codigo da ação é obrigatório
+      </mat-error>
+      <mat-error *ngIf="acaoNaoLocalizada" >
+          
+      </mat-error>
+    </mat-form-field>
+    <span class="mat-error" *ngIf="ordemForm.get('codigoAcao').valid && acaoNaoLocalizada">
+        Ação não foi localiza, código inválido
+    </span> 
+
+    <mat-form-field [ngClass]="{ 'esconder': this.ordemForm.get('tipoOrdem').value !== 'V' }">
+      <input matInput placeholder="Data da compra*" formControlName="dataCompra" mask="00/00/0000"
+        [hidden]="this.ordemForm.get('tipoOrdem').value == C">
+      <mat-error>
+        Data da compra é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Quantidade de ações*" formControlName="quantidadeAcoes" mask="dot_separator.0">
+      <mat-error>
+        Deve haver uma ao menos 1 ação
+      </mat-error>
+    </mat-form-field>
+    
+
+
+    <mat-form-field [ngClass]="{ 'esconder': ordemForm.get('id').value == 0}">
+      <input matInput placeholder="Valor" formControlName="valorOrdem" mask="dot_separator.2" readonly [ngClass]="{ 'esconder': ordemForm.get('id').value == 0}">
+    </mat-form-field>
+
+    <mat-form-field [ngClass]="{ 'esconder': ordemForm.get('id').value == 0}">
+      <input matInput placeholder="Taxa de corretagem" formControlName="taxaCorretagem" mask="dot_separator.2" readonly [ngClass]="{ 'esconder': ordemForm.get('id').value == 0}">
+    </mat-form-field>
+
+    <mat-form-field [ngClass]="{ 'esconder': ordemForm.get('id').value == 0}">
+      <input matInput placeholder="Imposto de renda" formControlName="impostoRenda" mask="dot_separator.2" readonly [ngClass]="{ 'esconder': ordemForm.get('id').value == 0}">
+    </mat-form-field>
+
+    <div>
+      <button  mat-raised-button color="primary"
+         [ngClass]="{ 'esconder': ordemForm.get('id').value > 0}"
+         [disabled]="!ordemForm.valid || acaoNaoLocalizada">
+        Salvar
+      </button>
+      <button mat-raised-button color="accent" (click)="onVoltar($event)">
+        Voltar
+      </button>
+    </div>
+  </form>
+</div>

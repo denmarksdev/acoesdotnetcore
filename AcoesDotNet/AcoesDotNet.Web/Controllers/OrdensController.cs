@@ -32,7 +32,7 @@ namespace AcoesDotNet.Web.Controllers
             return new ObjectResult(ordens);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Ordem>> Get(int id)
         {
             var ordem = await _repo.GetByIdAsync(id);
@@ -66,11 +66,16 @@ namespace AcoesDotNet.Web.Controllers
 
         private async Task EfetuaCalculosOrdem(Ordem ordem, Cliente cliente)
         {
-            var acaoDataCompra = await _acaoRepo.GetByExpression(
-                            a => a.CodigoDaAcao == ordem.CodigoAcao && a.DataCotacao.Date <= ordem.DataCompra.Date,
+            Acao acaoPorDataCompra = null;
+
+            if (ordem.DataCompra.HasValue)
+            {
+                 acaoPorDataCompra = await _acaoRepo.GetByExpression(
+                            a => a.CodigoDaAcao == ordem.CodigoAcao && a.DataCotacao.Date <= ordem.DataCompra.Value.Date,
                             campoOrdenacao: nameof(Acao.DataCotacao),
                             desc: true
                         );
+            }
 
             var acaoDataOrdem = await _acaoRepo.GetByExpression(
                 a => a.CodigoDaAcao == ordem.CodigoAcao &&   a.DataCotacao.Date <= ordem.DataOrdem.Date,
@@ -78,7 +83,7 @@ namespace AcoesDotNet.Web.Controllers
                 desc: true
             );
 
-            ordem.EfetuaCalculos(acaoDataOrdem,acaoDataCompra,cliente);
+            ordem.EfetuaCalculos(acaoDataOrdem, acaoPorDataCompra, cliente);
         }
     }
 }

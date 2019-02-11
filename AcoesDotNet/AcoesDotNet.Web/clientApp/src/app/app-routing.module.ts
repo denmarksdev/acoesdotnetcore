@@ -4,6 +4,8 @@ import { ClientesComponent } from './clientes/clientes/clientes.component';
 import { ClienteEditComponent } from './clientes/cliente-edit/cliente-edit.component';
 import { AcoesComponent } from './acoes/acoes/acoes.component';
 import { AcaoeditComponent } from './acoes/acaoedit/acaoedit.component';
+import { OrdensComponent } from './ordens/ordens/ordens.component';
+import { OrdemEditComponent } from './ordens/ordem-edit/ordem-edit.component';
 
 const routes: Routes = [
   { 
@@ -29,6 +31,18 @@ const routes: Routes = [
   {
     path:"acao/:id",
     component : AcaoeditComponent
+  },
+  {
+    path:"ordens",
+    component : OrdensComponent
+  },
+  {
+    path:"ordem",
+    component : OrdemEditComponent
+  },
+  {
+    path:"ordem/:id",
+    component : OrdemEditComponent
   },
   {
     path:"",

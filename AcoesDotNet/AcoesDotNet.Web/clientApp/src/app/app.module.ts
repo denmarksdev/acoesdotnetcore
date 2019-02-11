@@ -5,11 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
+
 import { ClientesModule }  from './clientes/clientes.module';
 import { AcoesModule }  from './acoes/acoes.module';
+import { OrdensModule } from './ordens/ordens.module';
 
 import localPT  from '@angular/common/locales/pt'
 import { registerLocaleData } from '@angular/common';
+import { from } from 'rxjs';
 registerLocaleData(localPT)
 
 
@@ -23,7 +26,8 @@ registerLocaleData(localPT)
     BrowserAnimationsModule,
     HttpClientModule,
     ClientesModule,
-    AcoesModule
+    AcoesModule,
+    OrdensModule
   ],
   providers: [],
   bootstrap: [AppComponent]

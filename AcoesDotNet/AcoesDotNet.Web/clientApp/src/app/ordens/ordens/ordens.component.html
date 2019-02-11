@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="titulo">Ordens</h1>
+  <button mat-raised-button color="primary" (click)="onIncluir()">Incluir</button>
+  <mat-card *ngFor="let ordem of service.ordens$|async" (click)="onconsultar(ordem.id)" >
+    <div class="mat-card-content">
+      <span><strong>Ordem </strong>{{ ordem.id }}</span>
+      <span><strong>Código da acao </strong>{{ ordem.codigoAcao }}</span>
+      <span><strong>Data da ordem </strong>{{ ordem.dataOrdem| date:"dd/MM/yyy 'ás' hh:mm:ss"}}</span>
+      <span><strong>Data da compra </strong>{{ ordem.dataCompra| date:"dd/MM/yyyy 'ás' hh:mm:ss" }}</span>
+      <span><strong>Valor </strong>{{ ordem.valorOrdem | currency:'USD' }}</span>
+    </div>
+  </mat-card>
+</div>

@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms'
-
-import { ClientesComponent } from './clientes/clientes.component';
-import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
-
-import { ClienteService } from './cliente.service';
 import { NgxMaskModule} from 'ngx-mask'
 
 import {
@@ -17,27 +12,31 @@ import {
   MatSnackBarModule
 } from '@angular/material'
 
+import { OrdensComponent } from './ordens/ordens.component';
+import { OrdemEditComponent } from './ordem-edit/ordem-edit.component';
+
+import { OrdemService } from './ordem.service';
+
 @NgModule({
-  declarations: [
-    ClientesComponent, 
-    ClienteEditComponent
-  ],
+  declarations: [OrdensComponent, OrdemEditComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    NgxMaskModule.forRoot(),
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    NgxMaskModule
   ],
-  exports:[
-    ClientesComponent
+  exports: [
+    OrdensComponent,
+    OrdemEditComponent
   ],
-  providers:[
-    ClienteService
+  providers: [
+    OrdemService
   ]
+
 })
-export class ClientesModule { }
+export class OrdensModule { }

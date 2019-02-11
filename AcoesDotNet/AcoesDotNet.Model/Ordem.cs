@@ -30,7 +30,7 @@ namespace AcoesDotNet.Model
         public DateTime  DataOrdem { get; set; }
         
         public int QuantidadeAcoes  { get; set; }
-        public DateTime DataCompra { get; set; }
+        public DateTime? DataCompra { get; set; }
         public decimal ValorOrdem { get; set; }
         public decimal TaxaCorretagem { get; set; }
         public decimal ImpostoRenda { get; set; }

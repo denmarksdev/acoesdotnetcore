@@ -31,6 +31,13 @@ namespace AcoesDotNet.Web.Controllers
             return new ObjectResult(Acao); ;
         }
 
+        [HttpGet("verifica/{codigoAcao}")]
+        public async Task<bool> AcaoExiste(string codigoAcao)
+        {
+            return await repo
+                 .ExistsAsync(a => a.CodigoDaAcao == codigoAcao);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Acao acao)
         {
@@ -65,5 +72,7 @@ namespace AcoesDotNet.Web.Controllers
         {
             await repo.DeleteAsync(id);
         }
+
+        
     }
 }

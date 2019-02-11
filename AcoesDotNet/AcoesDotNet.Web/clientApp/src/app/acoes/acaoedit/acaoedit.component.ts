@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { Acao } from '../acoes.model';
 import { AcoesService } from '../acoes.service';
 import { formatDate } from '@angular/common';
-import { GetDataUS } from '../../shared/data.helper'
+import { getDataUS,getDataAtualBR } from '../../shared/helpers/data.helper'
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -43,13 +43,13 @@ export class AcaoeditComponent implements OnInit {
 
   //#endregion
   
-  //#region Acções
+  //#region Ações
 
   onSalvar(event) {
     event.preventDefault();
 
     var acao: Acao = this.acaoForm.getRawValue();
-    acao.dataCotacao = GetDataUS(acao.dataCotacao, true);
+    acao.dataCotacao = getDataUS(acao.dataCotacao, true);
 
     if (acao.id > 0) {
       this.alterar(acao);
@@ -100,7 +100,7 @@ export class AcaoeditComponent implements OnInit {
       } else {
         this.acaoFormulario = "Novo"
         this.formIsChanged = true;
-        this.acaoForm.get("dataCotacao").setValue(new Date().toLocaleDateString());
+        this.acaoForm.get("dataCotacao").setValue(getDataAtualBR(true));
       }
     });
   }
@@ -123,9 +123,13 @@ export class AcaoeditComponent implements OnInit {
       id: [''], 
       codigoDaAcao: ['', Validators.required],
       dataCotacao: ['', [Validators.required, Validators.pattern(/\d{8}/)]],
-      valor: ['', Validators.required],
+      valor: ['', [Validators.required, Validators.min(1)]],
     });
   }
 
   //#endregion
+
+
 }
+
+

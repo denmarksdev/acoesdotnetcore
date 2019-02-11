@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSelectChange, MatSnackBar } from '@angular/material';
 import { ClienteService } from '../cliente.service';
-import { Cliente } from '../cliente.model';
+import { Cliente, PESSOA_FISICA, PESSOA_JURIDICA } from '../cliente.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { _configFactory } from 'ngx-mask';
-import { GetDataUS } from '../../shared/data.helper';
+import { getDataUS } from '../../shared/helpers/data.helper';
 
-const PESSOA_JURIDICA: string = "J";
-const PESSOA_FISICA: string = "F"
 const MASK_CPF = "000.000.000-00";
 const MASK_CNPJ = "00.000.000/0000-00"
 
@@ -29,6 +27,8 @@ export class ClienteEditComponent implements OnInit {
   ) {
   }
 
+  //#region membros
+
   public clienteForm: FormGroup;
   public mask: string;
   public placeHolderCnpjCpf: string;
@@ -46,31 +46,43 @@ export class ClienteEditComponent implements OnInit {
     }
   ]
 
+  //#endregion
+
+  //#region Implements   
+
   ngOnInit() {
     this.configuraFormulario();
     this.observaQueryString();
   }
 
-  onTipoChange(info: MatSelectChange) {
-    this.setPessoaFisica(info.value);
-  }
+  //#endregion
+
+  //#region  Ações
 
   onSalvar(event) {
     event.preventDefault();
 
     var cliente: Cliente = this.clienteForm.getRawValue();
-    cliente.dataNascimento = GetDataUS(cliente.dataNascimento);
+    cliente.dataNascimento = getDataUS(cliente.dataNascimento);
 
     console.log(cliente);
 
     if (cliente.id > 0) {
       this.alterar(cliente);
     } else {
-      cliente.id =0;
+      cliente.id = 0;
       this.incluirCliente(cliente);
     }
 
   }
+
+  onTipoChange(info: MatSelectChange) {
+    this.setPessoaFisica(info.value);
+  }
+
+  //#endregion
+
+  //#region Métodos
 
   private incluirCliente(cliente: Cliente) {
     this._service.post(cliente)
@@ -147,5 +159,5 @@ export class ClienteEditComponent implements OnInit {
     }
   }
 
-
+  //#endregion
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AcoesDotNet.Dal.Migrations
 {
     [DbContext(typeof(AcoesDataContext))]
-    [Migration("20190209014434_init")]
-    partial class init
+    [Migration("20190211024516_init2DataCompraNula")]
+    partial class init2DataCompraNula
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,8 @@ namespace AcoesDotNet.Dal.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CodigoDaAcao")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(10);
 
                     b.Property<DateTime>("DataCotacao");
 
@@ -59,6 +60,9 @@ namespace AcoesDotNet.Dal.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Nome")
+                        .IsUnique();
+
                     b.ToTable("Clientes");
                 });
 
@@ -73,7 +77,7 @@ namespace AcoesDotNet.Dal.Migrations
                     b.Property<string>("CodigoAcao")
                         .IsRequired();
 
-                    b.Property<DateTime>("DataCompra");
+                    b.Property<DateTime?>("DataCompra");
 
                     b.Property<DateTime>("DataOrdem");
 

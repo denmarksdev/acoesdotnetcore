@@ -38,5 +38,9 @@ export class AcoesService {
   public delete(id:number){
     return this._http.delete(BASE_API + "/" + id);
   }
-  
+
+  public acaoExiste(codigo:string){
+    return this._http.get<boolean>(`${BASE_API}/verifica/${codigo}`);
+  }
+
 }

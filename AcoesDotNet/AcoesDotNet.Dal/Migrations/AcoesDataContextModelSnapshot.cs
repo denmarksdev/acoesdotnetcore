@@ -26,7 +26,8 @@ namespace AcoesDotNet.Dal.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CodigoDaAcao")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(10);
 
                     b.Property<DateTime>("DataCotacao");
 
@@ -57,6 +58,9 @@ namespace AcoesDotNet.Dal.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Nome")
+                        .IsUnique();
+
                     b.ToTable("Clientes");
                 });
 
@@ -71,7 +75,7 @@ namespace AcoesDotNet.Dal.Migrations
                     b.Property<string>("CodigoAcao")
                         .IsRequired();
 
-                    b.Property<DateTime>("DataCompra");
+                    b.Property<DateTime?>("DataCompra");
 
                     b.Property<DateTime>("DataOrdem");
 
