@@ -6,9 +6,16 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 
+import {
+  MatSidenavModule,
+  MatButtonModule,
+} from '@angular/material'
+
 import { ClientesModule }  from './clientes/clientes.module';
 import { AcoesModule }  from './acoes/acoes.module';
 import { OrdensModule } from './ordens/ordens.module';
+
+
 
 import localPT  from '@angular/common/locales/pt'
 import { registerLocaleData } from '@angular/common';
@@ -27,7 +34,9 @@ registerLocaleData(localPT)
     HttpClientModule,
     ClientesModule,
     AcoesModule,
-    OrdensModule
+    OrdensModule,
+    MatSidenavModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

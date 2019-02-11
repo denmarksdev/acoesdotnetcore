@@ -24,7 +24,8 @@ namespace AcoesDotNet.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddSpaStaticFiles(spa => spa.RootPath = "wwwroot/dist/client");
+            services.AddSpaStaticFiles(spa => spa.RootPath = "wwwroot/dist/clientApp");
+
             services.AddTransient<IDatabaseRepository, DataBaseRepository>();
             services.AddTransient<IGenericRepository<Cliente>, GenericRepository<Cliente>>();
             services.AddTransient<IGenericRepository<Acao>, GenericRepository<Acao>>();
@@ -43,7 +44,9 @@ namespace AcoesDotNet.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            
+
+            await InicializaBaseDados(app);
+
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
             app.UseHttpsRedirection();
@@ -56,13 +59,11 @@ namespace AcoesDotNet.Web
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
-
-            await InicializaBaseDados(app);
         }
 
         private async Task InicializaBaseDados(IApplicationBuilder app)
         {
-            var connectionString = Configuration.GetValue<string>("SqlServerConnectioString");
+            var connectionString = Configuration.GetValue<string>("SqliteConnectionString");
             var databaseRepo = app.ApplicationServices.GetService<IDatabaseRepository>();
             await databaseRepo.InicializaAsync(connectionString);
         }

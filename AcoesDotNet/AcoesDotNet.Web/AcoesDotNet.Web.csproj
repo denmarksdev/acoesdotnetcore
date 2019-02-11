@@ -16,4 +16,8 @@
     <ProjectReference Include="..\AcoesDotNet.Repository\AcoesDotNet.Repository.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

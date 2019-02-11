@@ -48,7 +48,7 @@
 
     <mat-form-field [ngClass]="{ 'esconder': this.ordemForm.get('tipoOrdem').value !== 'V' }">
       <input matInput placeholder="Data da compra*" formControlName="dataCompra" mask="00/00/0000"
-        [hidden]="this.ordemForm.get('tipoOrdem').value == C">
+        [hidden]="this.ordemForm.get('tipoOrdem').value == 'C'">
       <mat-error>
         Data da compra é obrigatória
       </mat-error>
@@ -61,8 +61,7 @@
       </mat-error>
     </mat-form-field>
     
-
-
+    <!-- TODO:Refarorar ngClasses -->
     <mat-form-field [ngClass]="{ 'esconder': ordemForm.get('id').value == 0}">
       <input matInput placeholder="Valor" formControlName="valorOrdem" mask="dot_separator.2" readonly [ngClass]="{ 'esconder': ordemForm.get('id').value == 0}">
     </mat-form-field>
