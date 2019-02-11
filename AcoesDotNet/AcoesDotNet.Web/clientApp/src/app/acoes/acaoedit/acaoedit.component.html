@@ -20,6 +20,11 @@
           Valor é obrigatório
         </mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" [disabled]="!acaoForm.valid">Salvar</button>
+    <div>
+        <button mat-raised-button color="primary" [disabled]="!acaoForm.valid">Salvar</button>
+        <button mat-raised-button color="accent" (click)="onVoltar($event)">
+            Voltar
+          </button>
+    </div>
   </form>
 </div>

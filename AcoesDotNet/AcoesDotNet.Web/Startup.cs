@@ -42,7 +42,7 @@ namespace AcoesDotNet.Web
             else
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                //app.UseHsts();
             }
 
             await InicializaBaseDados(app);
@@ -56,14 +56,15 @@ namespace AcoesDotNet.Web
                 if (env.IsDevelopment())
                 {
                     spa.Options.SourcePath = "clientApp";
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                    spa.UseAngularCliServer("start");
                 }
             });
         }
 
         private async Task InicializaBaseDados(IApplicationBuilder app)
         {
-            var connectionString = Configuration.GetValue<string>("SqliteConnectionString");
+            //var connectionString = Configuration.GetValue<string>("SqliteConnectionString");
+            var connectionString = Configuration.GetValue<string>("SqlServerConnectioString");
             var databaseRepo = app.ApplicationServices.GetService<IDatabaseRepository>();
             await databaseRepo.InicializaAsync(connectionString);
         }

@@ -59,6 +59,11 @@ export class AcaoeditComponent implements OnInit {
     }
   }
 
+
+  onVoltar(event){
+    this._router.navigate(["acoes"])
+  }
+
   //#endregion
   
   //#region Métodos

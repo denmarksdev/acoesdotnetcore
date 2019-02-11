@@ -9,11 +9,6 @@ namespace AcoesDotNet.Dal.Daos
         {
            using (var db = new AcoesDataContext(connecionString))
            {
-
-                if (!System.IO.File.Exists("acao_dotnet.db")) {
-                    System.IO.File.Create("acao_dotnet.db");
-                }
-
                await db.Database.MigrateAsync();
            }
         }

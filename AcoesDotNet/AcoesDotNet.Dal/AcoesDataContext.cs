@@ -19,8 +19,17 @@ namespace AcoesDotNet.Dal
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(_connectionString);
-            optionsBuilder.UseSqlite(_connectionString);
+            //TODO:Refatorar 
+            if (_connectionString.Contains("Data Source"))
+            {
+                optionsBuilder.UseSqlite(_connectionString);
+            }
+            else
+            {
+                 optionsBuilder.UseSqlServer(_connectionString);
+
+            }
+
             base.OnConfiguring(optionsBuilder);
         }
 

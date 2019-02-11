@@ -65,15 +65,16 @@ export class ClienteEditComponent implements OnInit {
     var cliente: Cliente = this.clienteForm.getRawValue();
     cliente.dataNascimento = getDataUS(cliente.dataNascimento);
 
-    console.log(cliente);
-
     if (cliente.id > 0) {
       this.alterar(cliente);
     } else {
       cliente.id = 0;
       this.incluirCliente(cliente);
     }
+  }
 
+  onVoltar(event){
+    this._router.navigate(["clientes"])
   }
 
   onTipoChange(info: MatSelectChange) {
@@ -89,6 +90,7 @@ export class ClienteEditComponent implements OnInit {
       .subscribe(() => {
         this._router.navigate(["clientes"]);
       }, error => {
+        console.log(error);
         this._snackBar.open("Falha ao incluir o cliente", "Fechar", {
           duration: 2000,
         });
