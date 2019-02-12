@@ -6,12 +6,13 @@ Aplicação para registro de compra e venda de ações em ASP.NET Core e Angular
 - [Demo da aplicação](https://dotactions.azurewebsites.net/clientes)
 
 #  Requerimentos
-
+- [Node v10.15.0](https://nodejs.org/en/) 
 - [Visual Studio 2017+](https://visualstudio.microsoft.com/pt-br/vs/)
 - [SqlServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) se não for utilizar o Sqlite
 
 # Uso
 
+1. Na pasta clientApp rodar commando `npm i` para instalação de todas as depêndencias da aplicação Angular
 1. Configurar a connection string em **appsettings.config** se for utilizar o **SqlServer**
 1. Pode ser escolhido o banco de dados SqlServer ou Sqlite em **Startup.cs** no método **InicializaBaseDados**
 
