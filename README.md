@@ -6,7 +6,7 @@ Aplicação para registro de compra e venda de ações em ASP.NET Core e Angular
 - [Demo da aplicação](https://dotactions.azurewebsites.net/clientes)
 
 #  Requerimentos
-- [Node v10.15.0](https://nodejs.org/en/) 
+- [NPM](https://www.npmjs.com/get-npm) 
 - [Visual Studio 2017+](https://visualstudio.microsoft.com/pt-br/vs/)
 - [SqlServer](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) se não for utilizar o Sqlite
 
