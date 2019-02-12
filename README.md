@@ -13,7 +13,7 @@ Aplicação para registro de compra e venda de ações em ASP.NET Core e Angular
 # Uso
 
 1. Configurar a connection string em **appsettings.config** se for utilizar o **SqlServer**
-1. Pode ser escolhor o banco de dados SqlServer ou Sqlite em **Startup.cs** no método **InicializaBaseDados**
+1. Pode ser escolhido o banco de dados SqlServer ou Sqlite em **Startup.cs** no método **InicializaBaseDados**
 
 # API JSON
 
