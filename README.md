@@ -1,10 +1,6 @@
 # Ações DotNetCore
 Aplicação para registro de compra e venda de ações em ASP.NET Core e Angular 2+. 
 
-# Demo
-
-- [Demo da aplicação](https://dotactions.azurewebsites.net/clientes)
-
 #  Requerimentos
 - [NPM](https://www.npmjs.com/get-npm) 
 - [Visual Studio 2017+](https://visualstudio.microsoft.com/pt-br/vs/)
